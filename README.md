@@ -1,7 +1,7 @@
 # user-app
-Steps to run the application:
-•	Install node.js (Used Node version 15.4)
-•	Install angular CLI (Used Angular version 11)
-•	Run the following commands:
-o	npm install
-o	ng serve
+Steps to run the application: <br />
+•	Install node.js (Used Node version 15.4) <br />
+•	Install angular CLI (Used Angular version 11) <br />
+•	Run the following commands: <br />
+o	npm install <br />
+o	ng serve <br />
