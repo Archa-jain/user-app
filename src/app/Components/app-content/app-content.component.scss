@@ -1,0 +1,15 @@
+.side-nav-style{
+  width: 20%;
+}
+.container {
+  height: 100%;
+}
+app-footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+mat-sidenav-container {
+  height: calc(100% - 128px);
+}
