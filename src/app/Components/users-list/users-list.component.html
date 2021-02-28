@@ -1,0 +1,63 @@
+<div class="search-filter">
+  <mat-form-field class="search-alignment">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search" >
+  </mat-form-field>
+  <button mat-raised-button color="primary" class="button-alignment" (click) = "redirectToNewUser()">
+    New User
+  </button>
+</div>
+
+<div class="container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+    </ng-container>
+
+    <!-- Age Column -->
+    <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.age}} </mat-cell>
+    </ng-container>
+
+    <!-- Plan Type Column -->
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Plan Type </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.plan.type}} </mat-cell>
+    </ng-container>
+
+     <!-- Plan Status Column -->
+     <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Plan Status </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.plan.status}} </mat-cell>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="editUser(row)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteUser(row)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
